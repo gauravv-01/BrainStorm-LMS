@@ -1,12 +1,28 @@
-import { StyleSheet, Text, View ,Button,Image,TouchableOpacity, FlatList} from 'react-native';
-import React from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { StyleSheet, Text, View ,Image,TouchableOpacity, FlatList} from 'react-native'
+import React from 'react'
 import courseModel from '../api/courseModel';
+import { useNavigation } from '@react-navigation/native';
 
-const CourseListingPage = () => {
-  const navigation = useNavigation();
+const StudentDashBoard = () => {
+    const navigation=useNavigation();
+    const searchName = "Alice Johnson"; // The name you want to compare
 
-  const courseCard =({item})=>
+const studentCourses = courseModel.filter((element) => {
+  const nameExists = element.students.some((student) => student.name == searchName);
+
+  if (nameExists) {
+    // console.log("Element", element);
+  } else {
+    // console.log(`${searchName} does not exist in this course.`);
+  }
+
+  return nameExists; // You should return the result outside of the loop
+});
+console.log("Courses:",studentCourses)
+
+    // console.log("Courses",studentCourses);
+
+    const courseCard =({item})=>
   {
     return(
   
@@ -15,22 +31,14 @@ const CourseListingPage = () => {
     <Image source={item.img} style={{height:160,width:260,borderRadius:12,marginBottom:12}}></Image>
       <Text style={{color:"black",textAlign:'center',fontSize:18,fontWeight:'600'}}>{item.name}</Text>
       <Text style={{color:"black",textAlign:'right',alignSelf:'flex-end',fontSize:15,fontWeight:'500'}}>By: {item.instructor}</Text>
-      <Text style={{color:"black",fontSize:14,marginTop:10,}}>{item.description}</Text>
-      <TouchableOpacity onPress={()=>
-        {
-          // console.log(item);
-          navigation.navigate('CourseDetailsPage',{
-              courseDetail:item,
-            });
-        }
-      }><Text style={{backgroundColor:'#45C4B0',padding:12,marginTop:25,borderRadius:8,fontSize:16}}>View Details</Text></TouchableOpacity>
+      <Text style={{color:"black",fontSize:14,marginTop:10,alignSelf:'flex-start'}}>Due Date: {12+item.id}/11/23</Text>
+      <Text style={{color:"black",fontSize:14,marginTop:10,alignSelf:'flex-start'}}>Progress: {item.id+67}%</Text>
+      
     </View>
 
     </View>
     )
   }
-
-
 
 
 
@@ -42,24 +50,23 @@ const CourseListingPage = () => {
 <Text style={{fontSize:28,fontStyle:'italic',alignSelf:'center',marginLeft:30,color:'white'}}>BrainStorm</Text>
 <TouchableOpacity style={{marginLeft:25}} onPress={()=>
     {
-      navigation.navigate("StudentDashBoard");
+        navigation.navigate("StudentDashBoard");
     }
 }>
 <View style={{flexDirection:'column',flex:1,alignItems:'center'}}>
 <Image source={require("../icons/user-icon.png")} style={{height:48,width:43,marginHorizontal:10,marginTop:10}}/>
-<Text style={{fontSize:11,marginTop:5,fontWeight:'bold',}}>Hello, Alice</Text>
+<Text style={{fontSize:11,marginTop:5,fontWeight:'bold'}}>Hello, Alice</Text>
 
 </View>
 </TouchableOpacity>
 </View>
 <View style={styles.body}>
-
-    <View style={{marginTop:15}}>
-      <Text style={{fontSize:22,color:'#012030',alignSelf:'center',textDecorationLine:'underline',fontWeight:'600',marginBottom:10}}>List of Courses</Text>
+<View style={{marginTop:15}}>
+      <Text style={{fontSize:22,color:'#012030',alignSelf:'center',textDecorationLine:'underline',fontWeight:'600',marginBottom:10}}>List of Enrolled Courses</Text>
     </View>
     <View>
       <FlatList keyExtractor={(item)=>item.id}
-      data={courseModel} renderItem={courseCard}/>
+      data={studentCourses} renderItem={courseCard}/>
     </View>
 </View>
     </View>
@@ -67,10 +74,9 @@ const CourseListingPage = () => {
 }
 
 const styles = StyleSheet.create({
-  container:
+    container:
     {
         flex:1,
-        
     },
     head:
     {
@@ -85,7 +91,6 @@ const styles = StyleSheet.create({
         flex:8,
         backgroundColor:'#F6FFEE',
         paddingBottom:50,
-        // backgroundColor:'white',
     },
     coursecardContainer:
     {
@@ -102,7 +107,6 @@ const styles = StyleSheet.create({
       alignItems:'center',
       // borderRadius:12,
     }
-
 });
 
-export default CourseListingPage;
+export default StudentDashBoard;

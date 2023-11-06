@@ -4,7 +4,6 @@ import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 
 import CourseListingPage from './CourseListingPage';
-import MainPage from '../components/MainPage';
 
 const Home =()=>{
 

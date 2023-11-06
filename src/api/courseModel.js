@@ -44,7 +44,7 @@ const courseModel = [
       img:require('../images/courseImages/2.jpeg'),
       instructor: 'John Doe',
       description: 'Learn how to build mobile apps using React Native.',
-      enrollmentStatus: 'Open',
+      enrollmentStatus: 'Closed',
       thumbnail: 'your.image.here',
       duration: '12 weeks',
       schedule: 'Tuesdays and Thursdays, 7:00 PM - 9:00 PM',
@@ -66,7 +66,7 @@ const courseModel = [
       students: [
         {
           id: 201,
-          name: 'Eva Williams',
+          name: 'Alice Johnson',
           email: 'eva@example.com',
         },
         {
@@ -222,7 +222,7 @@ const courseModel = [
       students: [
         {
           id: 601,
-          name: 'Noah Anderson',
+          name: 'Alice Johnson',
           email: 'noah@example.com',
         },
         {
@@ -239,7 +239,7 @@ const courseModel = [
       img:require('../images/courseImages/7.jpeg'),
       instructor: 'Sophia Lewis',
       description: 'Learn how to start and grow a successful business.',
-      enrollmentStatus: 'Open',
+      enrollmentStatus: 'Closed',
       thumbnail: 'your.image.here',
       duration: '11 weeks',
       schedule: 'Thursdays, 6:00 PM - 8:00 PM',
@@ -278,7 +278,7 @@ const courseModel = [
       img:require('../images/courseImages/8.jpeg'),
       instructor: 'Ella Davis',
       description: 'Master the art of photography and capture stunning moments.',
-      enrollmentStatus: 'Open',
+      enrollmentStatus: 'Closed',
       thumbnail: 'your.image.here',
       duration: '8 weeks',
       schedule: 'Saturdays, 10:00 AM - 12:00 PM',
@@ -339,7 +339,7 @@ const courseModel = [
       students: [
         {
           id: 901,
-          name: 'William Harris',
+          name: 'WAlice Johnson',
           email: 'william@example.com',
         },
         {

@@ -9,7 +9,7 @@ import React from 'react';
 import type {PropsWithChildren} from 'react';
 import Home from './src/screens/Home';
 import CourseDetailsPage from './src/components/CourseDetailsPage';
-import StudentEnrollment from './src/components/StudentEnrollment';
+import StudentDashBoard from './src/components/StudentDashBoard';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -32,7 +32,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import Testing from './src/components/Testing';
 import CourseListingPage from './src/screens/CourseListingPage';
-import MainPage from './src/components/MainPage';
+
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -82,8 +82,8 @@ function App(): JSX.Element {
         <Stack.Screen name="Home" component={Home}  />    
         <Stack.Screen name="CourseListingPage" component={CourseListingPage}  />    
         <Stack.Screen name="CourseDetailsPage" component={CourseDetailsPage}  />    
-        <Stack.Screen name="StudentEnrollment" component={StudentEnrollment}  />    
-        <Stack.Screen name="MainPage" component={MainPage}  />    
+        <Stack.Screen name="StudentDashBoard" component={StudentDashBoard}  />    
+  
 
 
         {/* <Stack.Screen name='Service' component={Service} /> */}
